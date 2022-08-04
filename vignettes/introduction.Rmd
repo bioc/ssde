@@ -1,11 +1,11 @@
 ---
-  title: "ssde: An R Package for Single Sample Differential Gene Expression Analysis"
+  title: "ssde: an R Package for Single Sample Differential Gene Expression Analysis"
   author:
   - name: Hongxu Ding
     affiliation: Department of Pharmacy Practice and Science, University of Arizona
     email: dinghongxu1130@gmail.com
   package: ssde
-  abstract: ssde is an R package for differential gene expression (DE) analysis between two single samples. Specifically, ssde prioritizes genes that are overdispersed when comparing the test and control expression profiles. ssde is able to recapitulate a decent amount of ground-truth genes determined from regular DE analyses. ssde thus provides a reasonable compromise for DE analysis when only single samples are available.
+  abstract: ssde is an R package for differential gene expression (DE) analysis between two single samples from test and control conditions. Specifically, ssde prioritizes genes that are overdispersed when comparing the test and control expression profiles. ssde is able to recapitulate a decent amount of ground-truth genes determined from regular DE analyses. ssde thus provides a reasonable compromise for DE analysis when only single samples are available.
   output: 
     BiocStyle::html_document
   vignette: >
@@ -17,6 +17,10 @@
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+## Introduction
+
+Regular differential gene expression (DE) analysis is performed in a gene-wise fashion, which requires replicates for statistical power. Such a DE analysis thus becomes extremely challenging when only a single test-control pair is available. To explore the possibility of single sample DE analysis, we developed the ssde R package. Rather than referring to replicates, ssde prioritizes genes that are overdispersed as opposed to the transcriptome average behavior. By this means, ssde achieves single sample DE analysis by borrowing information from counterparting genes.
 
 ## Installation
 
@@ -84,7 +88,7 @@ abline(NULL, NULL, 2, 3, col = 1, lty = 2, lwd = 1)
 # dvalue-pvalue scatterplot
 ```
 
-## Regular DE
+## Regular DE Analysis
 
 We perform the regular multiple sample-multiple sample DE analysis between the "HD" and "pDLCL" groups as the groundtruth for benchmarking `ssde`:
 
@@ -96,7 +100,7 @@ fc <- log2(rowMeans(hd)/rowMeans(pdlcl))
 # t-test p-value and log2(fc)
 ```
 
-## Regular DE VS ssde
+## Regular DE Analysis VS ssde Analysis
 
 To cross-compare, we show the `ssde` results (color-coded based on the above pvalue-dvalue comparison) on the regular DE volcano plot:
 
