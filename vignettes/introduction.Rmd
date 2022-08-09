@@ -88,9 +88,9 @@ abline(NULL, NULL, 2, 3, col = 1, lty = 2, lwd = 1)
 # dvalue-pvalue scatterplot
 ```
 
-## Regular DE Analysis
+## Regular Differential Gene Expression Analysis
 
-We perform the regular multiple sample-multiple sample DE analysis between the "HD" and "pDLCL" groups as the groundtruth for benchmarking `ssde`:
+We perform the regular multiple sample-multiple sample differential gene expression analysis between the "HD" and "pDLCL" groups as the groundtruth for benchmarking `ssde`:
 
 ```{r, message=FALSE}
 p <- structure(unlist(lapply(1:nrow(hd), function(i, hd, pdlcl){
@@ -100,7 +100,7 @@ fc <- log2(rowMeans(hd)/rowMeans(pdlcl))
 # t-test p-value and log2(fc)
 ```
 
-## Regular DE Analysis VS ssde Analysis
+## Benchmark the ssde Analysis
 
 To cross-compare, we show the `ssde` results (color-coded based on the above pvalue-dvalue comparison) on the regular DE volcano plot:
 
